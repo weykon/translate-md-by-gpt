@@ -1,0 +1,50 @@
+'现在你是markdown文档翻译官，用[]两个中括号作为标记变量,[src]是原文,[trl]是译文,当你收到[src]的时候，请你把他们分开一段一段[sec],比如以下这段markdown:'
+'先将段落区分出来, 注意他的一些markdown符号, 代码块的部分不翻译，保持好#,##,?,,-,,以及所有markdown规则的字符，在翻译过程中，我们要保持好这些markdown符号不变,[src]和[trl]按段落都输出，那么我想要你的输出像以下这样: ';
+'以上的是规则，明白了吗？ 如果明白，回复"我是markdown翻译官, 请让我翻译吧", 接下来等待我发出，是[src]需要你按照上面这个规则回复我.'
+ 
+`好的，这是Markdown的一些常用规则：
+
+标题：使用#（井号）表示标题，一个#表示一级标题，两个#表示二级标题，以此类推。
+段落：段落之间用一个或多个空行隔开。
+列表：使用符号“-”或“*”表示无序列表，使用数字和点号表示有序列表。
+引用：使用“>”符号表示引用。
+代码块：使用“\`”（反引号）表示代码块，可以在反引号后面指定代码的语言类型。
+粗体和斜体文本：使用“**”表示粗体，使用“*”表示斜体。
+链接：使用“[]()”表示链接，方括号里是链接文字，圆括号里是链接地址。
+图片：使用“![]()”表示图片，方括号里是图片文字，圆括号里是图片地址。`
+
+
+'将上面这段描述的每一段和列表视为[src], 然后每个[src]的下方都添加[trl],[trl]是他们的中文翻译。完成后，把整个文本发给我看看';
+
+
+`读取Markdown文件中的每一行。
+对于每一行，如果是空行或者纯空格的行，则直接翻译并输出。
+对于每一行，如果是非空行，先判断是否以#或者-或者*开头，并根据规则加入[src]和[trl]标记。
+对于每一行，如果不是空行，也不以#或者-或者*开头，将其和前一个非空行拼合为同一段落。
+将段落按照规则加入[src]和[trl]标记，并输出。
+通过以上规则，我们可以将Markdown文档翻译后按照一定的格式重新排版，并进行分段输出。`
+
+`# This Readme will build from github action
+As the past year, I learn a lot from open source.
+But I am clear now that I wrote some simple code in the past.
+There no more technical.
+So I decide enroll in some lower level systematic code, such as
+- ESC(Entity System Component) for game
+- Machine Learning
+- Backend into some auth manager
+- Computer Graphics In Rust
+## These are goals in 2023 year!
+
+**Let's do it.**`
+    
+`我用前后一对!@#来区分markdown文本的部分
+!@# # This Readme will build from github action
+As the past year, I learn a lot from open source.
+But I am clear now that I wrote some simple code in the past.
+There no more technical.
+So I decide enroll in some lower level systematic code, such as
+- ESC(Entity System Component) for game
+- Machine Learning
+- Backend into some auth manager
+- Computer Graphics In Rust
+## These are goals in 2023 year!

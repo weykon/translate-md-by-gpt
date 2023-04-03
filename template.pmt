@@ -1,0 +1,43 @@
+Say `you will recevice ${a markdown text},translate ${lng}`
+
+Teach `each section sign ${src}`
+
+Example `
+${src}: # This is an example
+${trl}: # 这是一个示例
+${src}: Here is some more text
+${trl}: 这里是一些更多的文本
+`
+
+Chat 
+Input `a markdown text` `lng` {
+
+    Let `src` = each section from ${a markdown text}
+    Let `trl` = translate from ${src} to ${lng}
+
+    Example `
+        ${src}: # This is an example
+        ${trl}: # 这是一个示例
+        ${src}: Here is some more text
+        ${trl}: 这里是一些更多的文本
+    `
+
+    Teach `
+        each section sign ${src},${trl} is translated 
+        write down at next line of ${src}
+    `    
+}
+
+
+
+
+
+---
+
+type Input = 'a markdown text' | 'lng'
+
+Input `a markdown text` = `a markdown text` -> Input
+
+type Let = 'src' | 'trl'
+
+type Example = find Let and accord Input to explain.
